@@ -1,0 +1,10 @@
+.root {
+  display: 'flex';
+  flex-direction: 'column';
+}
+
+.btnstart {
+  margin: '10px 0';
+  align-self: 'center';
+  padding: 10;
+}
