@@ -7,7 +7,7 @@ interface IFinishedScreen {
 }
 const FinishedScreen: React.FC<IFinishedScreen> = ({ name, onClickRestart, score }) => {
   return (
-    <div className={'box'}>
+    <div className="box">
       <h2>Partie Terminé</h2>
       <h6>Le Gagnant</h6>
       <p>{name}</p>

@@ -39,6 +39,10 @@ const Dice: React.FC = () => {
     dice1: 1,
     dice2: 1,
   });
+  const nextPlayer = () => {
+    setCurrentPlayer((currentPlayer + 1) % user.length);
+    setCount((prev) => ({ ...prev, total: 0 }));
+  };
 
   const rollDice = () => {
     setIsRolling(true);
@@ -93,11 +97,6 @@ const Dice: React.FC = () => {
     setCount((prev) => ({ ...prev, currentTour: 0, total: 0 }));
   };
 
-  const nextPlayer = () => {
-    setCurrentPlayer((currentPlayer + 1) % user.length);
-    setCount((prev) => ({ ...prev, total: 0 }));
-  };
-
   useEffect(() => {
     setuser([]);
     if (count.userCount) {
@@ -112,10 +111,19 @@ const Dice: React.FC = () => {
     if (count.currentTour > 0 && count.currentTour % count.totalTour === 0) {
       nextPlayer();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count.currentTour, count.totalTour, user.length]);
   const userWinners = user.sort((userA, userB) => userB.score - userA.score)[0];
   return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+      }}
+    >
       {!statusGame && (
         <Home
           disabled={!(count.totalTour > 0 && count.userCount > 0)}
@@ -145,7 +153,13 @@ const Dice: React.FC = () => {
           onClick={rollDice}
         />
       )}
-      {statusGame === 'FINISHED' && <FinishedScreen name={userWinners.name} onClickRestart={onClickRestart} score={userWinners.score} />}
+      {statusGame === 'FINISHED' && (
+        <FinishedScreen
+          name={userWinners.name}
+          onClickRestart={onClickRestart}
+          score={userWinners.score}
+        />
+      )}
     </div>
   );
 };

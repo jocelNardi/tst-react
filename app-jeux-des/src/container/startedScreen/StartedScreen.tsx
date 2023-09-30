@@ -1,6 +1,6 @@
 import React from 'react';
 import CustomDice from '../../components/dice/Dice';
-
+import './styles.css';
 interface IStartedScreen {
   name: string;
   score: number;
@@ -10,13 +10,21 @@ interface IStartedScreen {
   total: number;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
-const StartedScreen: React.FC<IStartedScreen> = ({ score, isRolling, name, total, valueDice1, valueDice2, onClick }) => {
+const StartedScreen: React.FC<IStartedScreen> = ({
+  score,
+  isRolling,
+  name,
+  total,
+  valueDice1,
+  valueDice2,
+  onClick,
+}) => {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
+    <div className="box">
       <div>
         Joueur Actif: {name} et score:{score}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', margin: '10px 0' }}>
+      <div className="root-dice">
         <CustomDice isRolling={isRolling} value={valueDice1} />
         <CustomDice isRolling={isRolling} value={valueDice2} />
       </div>

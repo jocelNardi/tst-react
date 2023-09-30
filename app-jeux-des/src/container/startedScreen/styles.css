@@ -1,0 +1,12 @@
+.box{
+    display: flex;
+    align-Items: center;
+    justify-Content: center;
+    flex-Direction: column;
+}
+
+.root-dice{
+  display: flex; 
+  flex-Direction: row; 
+  margin: 10px 0
+}
