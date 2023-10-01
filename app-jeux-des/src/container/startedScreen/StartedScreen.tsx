@@ -21,14 +21,14 @@ const StartedScreen: React.FC<IStartedScreen> = ({
 }) => {
   return (
     <div className="box">
-      <div>
+      <label>
         Joueur Actif: {name} et score:{score}
-      </div>
+      </label>
       <div className="root-dice">
-        <CustomDice isRolling={isRolling} value={valueDice1} />
-        <CustomDice isRolling={isRolling} value={valueDice2} />
+        <CustomDice role="dice1" isRolling={isRolling} value={valueDice1} />
+        <CustomDice role="dice2" isRolling={isRolling} value={valueDice2} />
       </div>
-      <div style={{ margin: '10px 0' }}>{total}</div>
+      <label style={{ margin: '10px 0' }}>{total}</label>
       <button onClick={onClick} disabled={isRolling} style={{ padding: 10 }}>
         {isRolling ? 'En cours de lancer...' : 'Lancer le dé'}
       </button>

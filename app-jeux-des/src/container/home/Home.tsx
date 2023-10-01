@@ -21,12 +21,14 @@ const Home: React.FC<IHome> = ({
       placeholder="Inserer nombre de tour"
       onChange={onChangeCountTour}
       type="number"
+      role="nbTour"
     />
     <TextInput
       label="Nombre de Joueur"
       placeholder="Inserer nombre de Joueur"
       onChange={onChangeCountUser}
       type="number"
+      role="nbPlayers"
     />
     <button className="btnstart" onClick={onClickStart} disabled={disabled}>
       Start Game

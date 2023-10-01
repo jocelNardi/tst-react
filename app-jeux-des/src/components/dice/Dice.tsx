@@ -10,8 +10,9 @@ import D6 from '../../assets/png/D6.png';
 interface ICustomDice {
   isRolling: boolean;
   value: number;
+  role?: React.AriaRole | undefined;
 }
-const CustomDice: React.FC<ICustomDice> = ({ isRolling, value }) => {
+const Dice: React.FC<ICustomDice> = ({ isRolling, value, role }) => {
   const [Class, setClass] = React.useState('dice');
   const imgT = [undefined, D1, D2, D3, D4, D5, D6];
 
@@ -22,9 +23,9 @@ const CustomDice: React.FC<ICustomDice> = ({ isRolling, value }) => {
 
   return (
     <div className={Class}>
-      <img src={imgT[value]} alt="dice" style={{ width: 50, height: 50 }} />
+      <img role={role} src={imgT[value]} alt="imagedice" style={{ width: 50, height: 50 }} />
     </div>
   );
 };
 
-export default CustomDice;
+export default Dice;
