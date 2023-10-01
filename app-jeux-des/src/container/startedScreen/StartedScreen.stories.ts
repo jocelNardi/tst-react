@@ -17,6 +17,10 @@ export const Default = {
     valueDice1: 1,
     valueDice2: 1,
     total: 0,
+    user: [
+      { name: 'Joueur 1', score: 0, id: 1 },
+      { name: 'Joueur 2', score: 0, id: 2 },
+    ],
   },
 };
 
@@ -28,6 +32,10 @@ export const Onrolling = {
     valueDice1: 6,
     valueDice2: 1,
     total: 7,
+    user: [
+      { name: 'Joueur 1', score: 7, id: 1 },
+      { name: 'Joueur 2', score: 0, id: 2 },
+    ],
   },
 };
 
@@ -39,5 +47,9 @@ export const DefaultNextPlayer = {
     valueDice1: 6,
     valueDice2: 1,
     total: 7,
+    user: [
+      { name: 'Joueur 1', score: 0, id: 1 },
+      { name: 'Joueur 2', score: 0, id: 2 },
+    ],
   },
 };

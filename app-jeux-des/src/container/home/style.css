@@ -3,10 +3,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .btnstart {
   margin: 10px 0;
   align-self: center;
-  padding: 10;
+  padding: 10px 20px;
 }

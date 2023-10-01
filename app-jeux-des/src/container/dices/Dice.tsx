@@ -4,7 +4,7 @@ import FinishedScreen from '../finishedScreen/FinishedScreen';
 import Home from '../home/Home';
 import StartedScreen from '../startedScreen/StartedScreen';
 import './style.css';
-interface IuserInfo {
+export interface IuserInfo {
   score: number;
   name: string;
   id: number;
@@ -75,7 +75,6 @@ const Dice: React.FC<IDice> = ({
       setuser(nouveauxUtilisateurs);
 
       // Passer au joueur suivant
-      nextPlayer();
 
       setValue({ dice1: randomValue, dice2: randomValue2 });
       setCount((prev) => {
@@ -86,9 +85,13 @@ const Dice: React.FC<IDice> = ({
       });
 
       setIsRolling(false);
-
+      setTimeout(() => {
+        nextPlayer();
+      }, 500);
       if (count.currentTour === count.totalTour * count.userCount) {
-        setstatusGame('FINISHED');
+        setTimeout(() => {
+          setstatusGame('FINISHED');
+        }, 1000);
       }
     }, 1000);
   };
@@ -119,16 +122,10 @@ const Dice: React.FC<IDice> = ({
     setCurrentPlayer(0);
   }, [count.userCount]);
 
-  useEffect(() => {
-    if (count.currentTour > 0 && count.currentTour % count.totalTour === 0) {
-      nextPlayer();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count.currentTour, count.totalTour, user.length]);
   const userWinners = user.sort((userA, userB) => userB.score - userA.score)[0];
 
   return (
-    <div className="container">
+    <div>
       {!statusGame && (
         <Home
           disabled={!(count.totalTour > 0 && count.userCount > 0)}
@@ -149,6 +146,7 @@ const Dice: React.FC<IDice> = ({
       )}
       {statusGame === 'STARTED' && (
         <StartedScreen
+          user={user}
           score={user[currentPlayer].score}
           isRolling={isRolling}
           name={user[currentPlayer]?.name}

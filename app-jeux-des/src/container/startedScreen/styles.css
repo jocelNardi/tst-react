@@ -4,10 +4,25 @@
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  background: #f0f8ff;
 }
 
 .root-dice {
   display: flex;
   flex-direction: row;
   margin: 10px 0;
+}
+
+.labelScore {
+  display: flex;
+  position: fixed;
+  top: 50px;
+}
+
+.listUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
 }
