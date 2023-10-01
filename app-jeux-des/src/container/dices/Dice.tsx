@@ -26,7 +26,7 @@ const initialStateCount = {
   total: 0,
   totalTour: 0,
   userCount: 0,
-  currentTour: 0,
+  currentTour: 1,
 };
 const Dice: React.FC<IDice> = ({
   statusDefaultGame = undefined,
@@ -126,6 +126,7 @@ const Dice: React.FC<IDice> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count.currentTour, count.totalTour, user.length]);
   const userWinners = user.sort((userA, userB) => userB.score - userA.score)[0];
+
   return (
     <div className="container">
       {!statusGame && (
