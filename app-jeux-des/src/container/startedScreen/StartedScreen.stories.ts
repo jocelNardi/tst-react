@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/react';
+import StartedScreen from './StartedScreen';
+
+const StartedGame = {
+  title: 'Component/GameScreen',
+  component: StartedScreen,
+  tags: ['autodocs'],
+} satisfies Meta<typeof StartedScreen>;
+
+export default StartedGame;
+
+export const Default = {
+  args: {
+    name: 'Player 1',
+    score: 0,
+    isRolling: false,
+    valueDice1: 1,
+    valueDice2: 1,
+    total: 0,
+  },
+};
+
+export const Onrolling = {
+  args: {
+    name: 'Player 1',
+    score: 0,
+    isRolling: true,
+    valueDice1: 6,
+    valueDice2: 1,
+    total: 7,
+  },
+};
+
+export const DefaultNextPlayer = {
+  args: {
+    name: 'Player 2',
+    score: 0,
+    isRolling: false,
+    valueDice1: 6,
+    valueDice2: 1,
+    total: 7,
+  },
+};

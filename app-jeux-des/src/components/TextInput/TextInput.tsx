@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './style.css';
 interface ITextInput {
   label: string;
   type?: React.HTMLInputTypeAttribute | undefined;
@@ -8,14 +8,7 @@ interface ITextInput {
 }
 const TextInput: React.FC<ITextInput> = ({ label, onChange, placeholder, type }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        margin: '5px 0',
-      }}
-    >
+    <div className="container">
       <label>{label}</label>
       <input
         required

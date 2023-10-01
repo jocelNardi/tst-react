@@ -1,12 +1,13 @@
-.box{
-    display: flex;
-    align-Items: center;
-    justify-Content: center;
-    flex-Direction: column;
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
-.root-dice{
-  display: flex; 
-  flex-Direction: row; 
-  margin: 10px 0
+.root-dice {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
 }

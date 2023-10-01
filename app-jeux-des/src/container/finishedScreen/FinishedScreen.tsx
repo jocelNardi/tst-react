@@ -1,9 +1,9 @@
 import React from 'react';
-import './FinishedScreen.css';
+import './style.css';
 interface IFinishedScreen {
   name: string;
   score: number;
-  onClickRestart: React.MouseEventHandler<HTMLButtonElement>;
+  onClickRestart?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 const FinishedScreen: React.FC<IFinishedScreen> = ({ name, onClickRestart, score }) => {
   return (

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import FinishedScreen from '../finishedScreen/FinishedScreen';
 import Home from '../home/Home';
 import StartedScreen from '../startedScreen/StartedScreen';
-
+import './style.css';
 interface IuserInfo {
   score: number;
   name: string;
@@ -16,17 +16,29 @@ interface Icount {
   currentTour: number;
 }
 
+interface IDice {
+  statusDefaultGame?: 'STARTED' | 'FINISHED' | undefined;
+  userDefault?: IuserInfo[] | undefined;
+  countDefault?: Icount;
+}
+
 const initialStateCount = {
   total: 0,
   totalTour: 0,
   userCount: 0,
   currentTour: 0,
 };
-const Dice: React.FC = () => {
-  const [count, setCount] = useState<Icount>(initialStateCount);
+const Dice: React.FC<IDice> = ({
+  statusDefaultGame = undefined,
+  userDefault = [],
+  countDefault = initialStateCount,
+}) => {
+  const [count, setCount] = useState<Icount>(countDefault);
 
-  const [statusGame, setstatusGame] = useState<'STARTED' | 'FINISHED' | undefined>(undefined);
-  const [user, setuser] = useState<IuserInfo[]>([]);
+  const [statusGame, setstatusGame] = useState<'STARTED' | 'FINISHED' | undefined>(
+    statusDefaultGame
+  );
+  const [user, setuser] = useState<IuserInfo[]>(userDefault);
 
   const [isRolling, setIsRolling] = useState<boolean>(false);
 
@@ -115,15 +127,7 @@ const Dice: React.FC = () => {
   }, [count.currentTour, count.totalTour, user.length]);
   const userWinners = user.sort((userA, userB) => userB.score - userA.score)[0];
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
+    <div className="container">
       {!statusGame && (
         <Home
           disabled={!(count.totalTour > 0 && count.userCount > 0)}

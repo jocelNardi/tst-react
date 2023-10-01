@@ -1,12 +1,6 @@
-.root {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.btnstart {
-  margin: 10px 0;
-  align-self: center;
-  padding: 10;
 }
