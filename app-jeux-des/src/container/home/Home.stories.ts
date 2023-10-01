@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import Home from './Home';
 
 const HomeStories = {
-  title: 'Component/HomePage',
+  title: 'Container/HomePage',
   component: Home,
   tags: ['autodocs'],
 } satisfies Meta<typeof Home>;

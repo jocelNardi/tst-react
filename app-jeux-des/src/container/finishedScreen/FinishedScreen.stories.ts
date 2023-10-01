@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import FinishedScreen from './FinishedScreen';
 
 const FinishedStories = {
-  title: 'Component/Endpage',
+  title: 'Container/Endpage',
   component: FinishedScreen,
   tags: ['docs'],
 } satisfies Meta<typeof FinishedScreen>;

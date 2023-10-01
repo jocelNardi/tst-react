@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import Dice from './Dice';
 
 const DicePage = {
-  title: 'Component/ContainerDice',
+  title: 'Container/ContainerDice',
   component: Dice,
   tags: ['docs'],
 } satisfies Meta<typeof Dice>;

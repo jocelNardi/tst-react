@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import StartedScreen from './StartedScreen';
 
 const StartedGame = {
-  title: 'Component/GameScreen',
+  title: 'Container/GameScreen',
   component: StartedScreen,
   tags: ['autodocs'],
 } satisfies Meta<typeof StartedScreen>;
